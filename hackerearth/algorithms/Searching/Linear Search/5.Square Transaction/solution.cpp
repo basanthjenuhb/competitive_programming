@@ -1,13 +1,12 @@
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 
-int search(int transactions[],int target, int low, int high)
+int search(int *transactions,int target, int low, int high)
 {
 	int mid;
 	while(low <= high)
 	{
-		mid = low + (high - low) / 2;
+		mid = (high + low) / 2;
 		if(transactions[mid] >= target && (mid == 0 || transactions[mid - 1] < target))
 				return mid + 1;
 		if(transactions[mid] < target)
@@ -20,8 +19,8 @@ int search(int transactions[],int target, int low, int high)
 
 int main()
 {
-	int num, element;
-	int transactions[100000];
+    std::ios::sync_with_stdio(false);
+	int num, element, transactions[100000];
 	cin >> num;
 	cin >> transactions[0];
 	for(int i = 1; i < num; i++)
@@ -35,6 +34,6 @@ int main()
 	while(queries--)
 	{
 		cin >> target;
-		cout << search(transactions, target, 0, num - 1) << endl;
+		cout << search(transactions, target, 0, num - 1) << "\n";
 	}
 }
