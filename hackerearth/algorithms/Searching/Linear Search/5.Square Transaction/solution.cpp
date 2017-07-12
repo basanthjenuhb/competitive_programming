@@ -8,7 +8,7 @@ int search(int transactions[],int target, int low, int high)
 	while(low <= high)
 	{
 		mid = low + (high - low) / 2;
-		if(transactions[mid] >= target && (mid == 0 || mid != 0 && transactions[mid - 1] < target))
+		if(transactions[mid] >= target && (mid == 0 || transactions[mid - 1] < target))
 				return mid + 1;
 		if(transactions[mid] < target)
 			low = mid + 1;
