@@ -3,4 +3,4 @@ testing/*
 Input*
 input*
 .DS_STORE
-.vscode/settings.json
+.vscode/*

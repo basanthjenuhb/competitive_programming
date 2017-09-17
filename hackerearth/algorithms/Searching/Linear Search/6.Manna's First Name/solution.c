@@ -4,13 +4,15 @@ int suvo, suvojith;
 
 int present(char *string, int i, char *pattern)
 {
-	for(int k = i, j = 0; string[k] != '\0' && pattern[j] != '\0'; k++, j++)
+	int k, j = 0;
+	for(k = i; string[k] != '\0' && pattern[j] != '\0'; k++, j++)
 	{
-		// printf("%c %c\n",string[k], pattern[j] );
 		if(string[k] != pattern[j])
 			return 0;
 	}
-	return 1;
+	if(pattern[j] == '\0')
+		return 1;
+	return 0;
 }
 
 void search(char *string)
